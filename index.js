@@ -6,54 +6,36 @@ function exersice4Easier (a, b){
     console.log(a);
     exersice4Easier(a + 1, b);
 }
+exersice4Easier(1,5)
+
 
 console.log ('..........#4 Усложненный вариант')
-function exersice4Easier (a, b){
+function exersice4Harder (a, b){
+    console.log(a);
     if (a<b){
-        console.log(a);
-        exersice4Easier(a + 1, b);
+        exersice4Harder(a + 1, b);
     }
     else {
-        console.log(a);
         if (a==b) {
             return;
         }
-        exersice4Easier(a-1, b)
+        exersice4Harder(a-1, b)
     }
+
 }
-exersice4Easier(5,1)
+exersice4Harder(5,1)
 
 
 console.log('..........#5')
 
-var showTime = async () => { while (true) {
-    // (B1) UPDATE CURRENT TIME
-    let now = new Date();
-    let hr = now.getHours();
-    let min = now.getMinutes();
-    let sec = now.getSeconds();
-    document.getElementById("timeNow").innerHTML = `${hr}:${min}:${sec}`;
-
-    await new Promise(resolve => setTimeout(resolve, 1000));
-}};
-
-    showTime();
-
-
-/* Я намагалась зробити цю задачку по іншому, але у мене виходить. Я намагаль також виводи в консоль, щоб подивитись
- чи працює фінкція. Консоль виводиться кожну секунду але значення не оновлюється. Я не розумію чому
-
-let today = new Date();
-function time(todayNow) {
-    let hours = todayNow.getHours();
-    let minutes = todayNow.getMinutes();
-    let seconds = todayNow.getSeconds();
+let timeNow = document.getElementById("timeNow");
+function time() {
+    let today = new Date();
+    let hours = today.getHours();
+    let minutes = today.getMinutes();
+    let seconds = today.getSeconds();
     let newVar = '' + hours + ':' + minutes + ':' + seconds;
-    document.getElementById("timeNow").innerHTML = newVar;
+    timeNow.innerHTML = newVar;
 }
 
-let id = setInterval (function(){time(today)}, 1000);
-
-function time(todayNow)
-
-*/
+setInterval (function(){time()}, 1000);
